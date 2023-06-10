@@ -1,0 +1,28 @@
+<app-search></app-search>
+
+<ul>
+    <li *ngFor="let p of products">
+        <a>
+            <img src="{{p.imageURL}}" alt="">
+            <div class="content">
+                <div class="name">
+                    {{p.pname}}
+                </div>
+                <div class="stars">
+                    <star-rating [value]="p.rating" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="false" ></star-rating>
+                    <!--(rate)="onRate($event)"-->
+                </div>
+                <div class="product-item-footer">
+                    <div class="origins">
+                        <span *ngFor="let o of p.origins">
+                            {{o.origin}}
+                        </span>
+                    </div> 
+                </div>
+                <div class="product-price">
+                    {{p.price | currency}}
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
